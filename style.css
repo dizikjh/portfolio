@@ -100,7 +100,7 @@ p {
 #navbar {
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-dark-green);
+  background-color: var(--color-blue);
   align-items: center;
   color: var(--color-white);
   padding: 16px;
@@ -146,7 +146,7 @@ p {
 
 .home__title,
 .home__description {
-  color: var(--color-dark-blue);
+  color: var(--color-dark-grey);
 }
 
 .home__contact {
@@ -428,4 +428,30 @@ p {
 
 .testimonial__speech-bubble a {
   color: var(--color-dark-blue);
+}
+
+/* Contact */
+#contact {
+  background-color: var(--color-blue);
+}
+
+.contact__title,
+.contact__emil,
+.contact__rights {
+  color: var(--color-white);
+}
+
+.contact__title {
+  margin: 32px 0;
+}
+
+.contact__links {
+  font-size: var(--font-large);
+  margin: 24px 0;
+}
+
+.contact__links i:hover {
+  transform: scale(1.1);
+  color: var(--color-pink);
+  transition: all var(--animation-duration) ease-in;
 }
