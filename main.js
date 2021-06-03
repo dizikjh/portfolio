@@ -6,16 +6,17 @@ const navbar = document.querySelector('#navbar');
 // querySelector<E extends Element = Element>(selectors: string): E | null;  Element return
 //navbar heigh
 const navbarHeight = navbar.getBoundingClientRect().height;
+
 document.addEventListener('scroll', ()=>{
     // console.log(window.scrollY); //scroll size 
     // console.log(navbarHeight); //navbar height
-    
+
     if(window.scrollY > navbarHeight){
         navbar.classList.add('navbar--dark'); //add class in navbar
     }else{
         navbar.classList.remove('navbar--dark')
     }
-})
+});
 
 /* Handle scrolling when tapping on the navbar menu*/
 //navba__menu
@@ -39,7 +40,20 @@ homeContactBtn.addEventListener('click',(event)=>{
     scrollIntoView(link);
 });
 
+
+/* Make home slowly fate to trasparent as the window scrolls down*/
+const home = document.querySelector('#home');
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener('scroll',()=>{
+    home.style.opacity = 1-window.scrollY / homeHeight;
+});
+
+
 function scrollIntoView(selector){
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({behavior: "smooth"});
 }
+
+
+
+
