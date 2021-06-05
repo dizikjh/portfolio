@@ -35,6 +35,7 @@
   /* Animation */
   --animation-duration: 300ms;
 }
+
 /* Universal tags */
 * {
   /* included padding */
@@ -112,7 +113,7 @@ p {
 
 #navbar.navbar--dark {
   background-color: var(--color-blue);
-  padding: 2px;
+  padding: 6px;
 }
 
 .navbar__menu {
@@ -141,7 +142,7 @@ p {
 
 .navbar__toggle-button {
   position: absolute;
-  top: 24px;
+  top: 12px;
   right: 32px;
   font-size: 24px;
   color: var(--color-white);
@@ -404,7 +405,7 @@ p {
 }
 
 .project__description h3 {
-  color: var(--color-white);
+  color: var(--color-orange);
 }
 
 .project__description h3:after {
@@ -412,9 +413,9 @@ p {
   display: block;
   position: relative;
   left: 50%;
-  width: 25px;
+  width: 50px;
   height: 2px;
-  margin-left: -12px;
+  transform: translateX(-50%);
   margin-top: 8px;
   background-color: var(--color-dark-white);
 }
@@ -508,6 +509,8 @@ p {
 }
 
 /* For below 768px screen width */
+/* media query 안에는 최소한에 것만들어간다- 차이점들만 스크린 사이즈가 작을때만 적용 되는것
+toggle 버튼 디자인은 밖에서 적용한다*/
 @media screen and (max-width: 768px) {
   .navbar__toggle-button {
     display: block;
@@ -522,6 +525,10 @@ p {
     text-align: center;
     width: 100%;
     display: none;
+  }
+
+  .navbar__menu.open {
+    display: block;
   }
 
   .about__majors {

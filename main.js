@@ -6,6 +6,8 @@ const navbar = document.querySelector('#navbar');
 // querySelector<E extends Element = Element>(selectors: string): E | null;  Element return
 //navbar heigh
 const navbarHeight = navbar.getBoundingClientRect().height;
+//navba__menu -  navbar click event /toggle small screen
+const navbarMenu = document.querySelector('.navbar__menu');
 
 document.addEventListener('scroll', ()=>{
     // console.log(window.scrollY); //scroll size 
@@ -16,11 +18,11 @@ document.addEventListener('scroll', ()=>{
     }else{
         navbar.classList.remove('navbar--dark')
     }
+    navbarMenu.classList.remove('open'); // navbar 움직일시 small screen toggle 제거
 });
 
 /* Handle scrolling when tapping on the navbar menu*/
-//navba__menu
-const navbarMenu = document.querySelector('.navbar__menu');
+
 //click event to navbar
 navbarMenu.addEventListener('click', (event)=>{
 
@@ -33,13 +35,18 @@ navbarMenu.addEventListener('click', (event)=>{
     scrollIntoView(link);
 });
 
+/* Navbar toggle button for small screen */
+const navbarToggleBtn = document.querySelector('.navbar__toggle-button');
+navbarToggleBtn.addEventListener('click',()=>{
+    navbarMenu.classList.toggle("open");
+});
+
 /* Handle click on "Contact Me" button on home*/
 const homeContactBtn = document.querySelector('.home__contact');
 homeContactBtn.addEventListener('click',(event)=>{
     const link = event.target.dataset.link;
     scrollIntoView(link);
 });
-
 
 /* Make home slowly fate to trasparent as the window scrolls down*/
 const home = document.querySelector('#home');
@@ -103,7 +110,6 @@ workBtnContainer.addEventListener('click',(e)=>{
         ProjectContainer.classList.remove('anim-out');
     },300)
 });
-
 
 function scrollIntoView(selector){
     const scrollTo = document.querySelector(selector);
