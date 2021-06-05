@@ -60,12 +60,42 @@ document.addEventListener('scroll',()=>{
 
 /*Handle click on the "arrow up" button*/
 arrowUp.addEventListener('click',(event)=>{
-    //link : i class : data-set="#home"
+    //link : i class : data-link="#home"
     // const target = event.target;
     // const link = target.dataset.link;
     // const goHome = document.querySelector(link);
     // goHome.scrollIntoView({behavior:"smooth"});
     scrollIntoView("#home");
+});
+
+/* Show Projects in work*/
+//button = document.querySelectorAll 로 받으면 event click시 forEach를 돌려야 한다.
+const workBtnContainer = document.querySelector('.work__categories'); //Parents of button 
+const ProjectContainer = document.querySelector('.work__projects'); //for animation
+const projects = document.querySelectorAll('.project'); // array All project
+workBtnContainer.addEventListener('click',(e)=>{
+     // button 안에 span 이있다, parentNode로 처리
+    const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+    if(filter == null) {
+        return;
+    }
+
+    ProjectContainer.classList.add('anim-out');
+
+    setTimeout(() => { //browser 제공 api = 코드 다 실행 하고 이후 실행
+        //for(let i =0; i <projects.length; i++){ project = projects[i]}
+        //for(let project of projects){  }
+        projects.forEach((project)=>{
+            if(filter ==='*' || filter === project.dataset.type){
+                project.classList.remove('invisible');
+            }else{
+                project.classList.add('invisible');
+            }
+        });
+
+        //시간 지난뒤에 애니메이션 ClassList 없애 준다.
+        ProjectContainer.classList.remove('anim-out');
+    },300)
 });
 
 
