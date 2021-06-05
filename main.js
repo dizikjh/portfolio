@@ -80,8 +80,14 @@ workBtnContainer.addEventListener('click',(e)=>{
         return;
     }
 
-    ProjectContainer.classList.add('anim-out');
+    //Remove selction form previous item and select new one
+    const active = document.querySelector('.category__btn.selected');
+    active.classList.remove('selected');
+    const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+    target.classList.add('selected');
+    // e.target.classList.add('selected'); //span에 할당 된다
 
+    ProjectContainer.classList.add('anim-out'); // animation 
     setTimeout(() => { //browser 제공 api = 코드 다 실행 하고 이후 실행
         //for(let i =0; i <projects.length; i++){ project = projects[i]}
         //for(let project of projects){  }
