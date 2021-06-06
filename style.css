@@ -322,6 +322,7 @@ p {
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 48px;
+  position: relative;
 }
 
 .category__btn.selected,
@@ -344,9 +345,9 @@ p {
   height: 24px;
   line-height: 24px;
   display: inline-block;
-  position: relative;
+  position: absolute;
   top: -20px;
-  left: 4px;
+  right: 16px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
 }
@@ -512,8 +513,17 @@ p {
 /* media query 안에는 최소한에 것만들어간다- 차이점들만 스크린 사이즈가 작을때만 적용 되는것
 toggle 버튼 디자인은 밖에서 적용한다*/
 @media screen and (max-width: 768px) {
+  :root {
+    /* Font size */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+  }
   .navbar__toggle-button {
     display: block;
+    top: 4px;
   }
   #navbar {
     flex-direction: column;
@@ -531,24 +541,71 @@ toggle 버튼 디자인은 밖에서 적용한다*/
     display: block;
   }
 
+  .section {
+    padding: 16px;
+    padding-top: 40px;
+  }
+
   .about__majors {
     flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 0px;
   }
 
   .major {
-    margin-bottom: 38px;
+    margin-bottom: 30px;
   }
 
   .skillset {
     flex-direction: column;
   }
 
+  .work__categories {
+    margin: 20px;
+  }
+  .category__btn {
+    margin: 4px 0;
+    width: 100%;
+  }
+
+  .category__count {
+    margin: 4px 0;
+  }
+
   .project {
     flex-grow: 1;
   }
 
+  .testimonials {
+    flex-direction: column;
+  }
+
+  .testimonial {
+    flex-direction: column;
+    align-items: center;
+  }
   .tetimonial__avatar {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+  }
+
+  .tetimonial__avatar:nth-child(even),
+  .tetimonial__avatar:nth-child(odd) {
+    margin: 0;
+    margin-bottom: 8px;
+  }
+
+  .testimonial__speech-bubble {
+    order: 1;
+  }
+
+  .arrow-up {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 40px;
+    right: 16px;
+    bottom: 16px;
   }
 }
