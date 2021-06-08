@@ -113,7 +113,7 @@ p {
 
 #navbar.navbar--dark {
   background-color: var(--color-blue);
-  padding: 6px;
+  padding: 16px;
 }
 
 .navbar__menu {
@@ -334,7 +334,7 @@ p {
 .category__btn.selected .category__count,
 .category__btn:hover .category__count {
   opacity: 1;
-  top: 0;
+  top: 5px;
 }
 
 .category__count {
@@ -346,7 +346,7 @@ p {
   line-height: 24px;
   display: inline-block;
   position: absolute;
-  top: -20px;
+  top: -9px;
   right: 16px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
@@ -523,11 +523,12 @@ toggle 버튼 디자인은 밖에서 적용한다*/
   }
   .navbar__toggle-button {
     display: block;
-    top: 4px;
+    top: 15px;
   }
   #navbar {
     flex-direction: column;
     align-items: flex-start;
+    padding: 20px;
   }
 
   .navbar__menu {
@@ -569,7 +570,7 @@ toggle 버튼 디자인은 밖에서 적용한다*/
   }
 
   .category__count {
-    margin: 4px 0;
+    margin: 1px 0;
   }
 
   .project {
