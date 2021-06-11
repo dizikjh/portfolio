@@ -6,6 +6,8 @@ const navbar = document.querySelector('#navbar');
 // querySelector<E extends Element = Element>(selectors: string): E | null;  Element return
 //navbar heigh
 const navbarHeight = navbar.getBoundingClientRect().height;
+//navbar offsetheigh
+const navbarOffsetHeight = navbar.getBoundingClientRect().offsetHeight;
 //navba__menu -  navbar click event /toggle small screen
 const navbarMenu = document.querySelector('.navbar__menu');
 
@@ -169,7 +171,7 @@ function selectNavItemFunc(selected){
 
 function scrollIntoView(selector){
     const scrollTo = document.querySelector(selector); //section으로 이동
-    scrollTo.scrollIntoView({behavior: "smooth"});
+    scrollTo.scrollIntoView({top:location,behavior: "smooth"});
     selectNavItemFunc(navItems[sectionIds.indexOf(selector)]);
 }
 
